@@ -1,0 +1,58 @@
+name: FlowA
+globals:
+  python: "C:\\Users\\82108\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+  workdir: "C:\\access\\rpa"
+  timeout_sec: 600
+
+steps:
+  - id: a1
+    name: Excel -> LLM 변환
+    cmd:
+      - "{python}"
+      - "C:\\access\\rpa\\convert_excel2llm2.py"
+      - ".\\summary\\매출실적.xlsx"
+      - "--formats"
+      - "txt"
+      - "--data-only"
+      - "--outdir"
+      - ".\\summary"
+    next: a2
+    fail: a3
+
+  - id: a2
+    name: Gemini 실행
+    cmd:
+      - "{python}"
+      - "C:\\access\\rpa\\chat_with_gemini.py"
+    next: a4
+    fail: a5
+
+  - id: a3
+    name: a1 실패 처리
+    cmd: ["{python}", "-c", "print('a1 failed')"]
+
+  - id: a4
+    name: Mail 전송
+    cmd:
+      - "{python}"
+      - "C:\\access\\rpa\\mail_main.py"
+      - "--action"
+      - "send"
+      - "--subject"
+      - "Monthly Report"
+      - "--contents"
+      - "AI가 분석한 보고서입니다."
+    next: a6
+    fail: a7
+
+  - id: a5
+    name: a2 실패 처리
+    cmd: ["{python}", "-c", "print('a2 failed')"]
+
+  - id: a6
+    name: a4 성공 처리
+    cmd: ["{python}", "-c", "print('a4 success')"]
+
+  - id: a7
+    name: a4 실패 처리
+    cmd: ["{python}", "-c", "print('a4 failed')"]

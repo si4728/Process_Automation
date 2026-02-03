@@ -1,0 +1,23 @@
+2026-01-29 14:51:22 | INFO  | [FlowA] START flow=C:\access\rpa\flows\flow_A1.yaml
+2026-01-29 14:51:22 | INFO  | [FlowA] workdir=C:\access\rpa timeout=600 log=C:\access\rpa\flows\logs\FlowA_20260129_145122.log
+2026-01-29 14:51:22 | INFO  | [FlowA] >>> RUN a1 (Excel -> LLM 변환)
+2026-01-29 14:51:22 | INFO  | [FlowA] CMD: ['C:\\Users\\82108\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'C:\\access\\rpa\\convert_excel2llm2.py', '.\\summary\\매출실적.xlsx', '--formats', 'txt', '--data-only', '--outdir', '.\\logs\\mail_ready']
+2026-01-29 14:51:22 | INFO  | [FlowA] OUT: C:\access\rpa\flows\logs\FlowA_20260129_145122_a1.out.txt
+2026-01-29 14:51:23 | INFO  | [FlowA] <<< END a1 rc=0 elapsed=0.49s
+2026-01-29 14:51:23 | INFO  | [FlowA] [OUTPUT TAIL]
+2026-01-29 14:51:23,142 - INFO - Excel ���� �ε� ��: C:\access\rpa\summary\�������.xlsx
+2026-01-29 14:51:23,295 - INFO - ��Ʈ ó�� ��: 1���������
+2026-01-29 14:51:23,312 - INFO - ������: C:\access\rpa\logs\mail_ready\1���������.txt
+2026-01-29 14:51:23,312 - INFO - 
+============================================================
+2026-01-29 14:51:23,312 - INFO - ��ȯ �Ϸ�!
+2026-01-29 14:51:23,312 - INFO - ó���� ��Ʈ: 1��
+2026-01-29 14:51:23,312 - INFO - ��� ���丮: C:\access\rpa\logs\mail_ready
+2026-01-29 14:51:23,312 - INFO - ������ ����: 1��
+2026-01-29 14:51:23,321 - INFO - 
+������ ���� ���:
+2026-01-29 14:51:23,322 - INFO -   - mail_ready\1���������.txt
+2026-01-29 14:51:23,324 - INFO - LLM ���� ���� ������: llm\gemini_settings_00026.ini
+2026-01-29 14:51:23,325 - INFO - ============================================================
+2026-01-29 14:51:23 | INFO  | [FlowA] DONE status=OK total=0.50s last=a1
+2026-01-29 14:51:23 | INFO  | [FlowA] PATH: a1[rc=0]

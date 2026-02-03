@@ -1,0 +1,23 @@
+2026-01-29 18:00:29 | INFO  | [FlowA] START flow=C:\access\rpa\flows\flow_A1.yaml
+2026-01-29 18:00:29 | INFO  | [FlowA] workdir=C:\access\rpa timeout=600 log=C:\access\rpa\flows\logs\FlowA_20260129_180029.log
+2026-01-29 18:00:29 | INFO  | [FlowA] >>> RUN a1 (Excel -> LLM 변환)
+2026-01-29 18:00:29 | INFO  | [FlowA] CMD: ['C:\\Users\\82108\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'C:\\access\\rpa\\convert_excel2llm2.py', '.\\summary\\매출실적.xlsx', '--formats', 'txt', '--data-only', '--outdir', '.\\summary']
+2026-01-29 18:00:29 | INFO  | [FlowA] OUT: C:\access\rpa\flows\logs\FlowA_20260129_180029_a1.out.txt
+2026-01-29 18:00:30 | INFO  | [FlowA] <<< END a1 rc=0 elapsed=0.48s
+2026-01-29 18:00:30 | INFO  | [FlowA] [OUTPUT TAIL]
+2026-01-29 18:00:30,187 - INFO - Excel 파일 로드 중: C:\access\rpa\summary\매출실적.xlsx
+2026-01-29 18:00:30,330 - INFO - 시트 처리 중: 1월매출실적
+2026-01-29 18:00:30,341 - INFO - 생성됨: C:\access\rpa\summary\1월매출실적.txt
+2026-01-29 18:00:30,341 - INFO - 
+============================================================
+2026-01-29 18:00:30,341 - INFO - 변환 완료!
+2026-01-29 18:00:30,341 - INFO - 처리된 시트: 1개
+2026-01-29 18:00:30,342 - INFO - 출력 디렉토리: C:\access\rpa\summary
+2026-01-29 18:00:30,342 - INFO - 생성된 파일: 1개
+2026-01-29 18:00:30,351 - INFO - 
+생성된 파일 목록:
+2026-01-29 18:00:30,351 - INFO -  summary\1월매출실적.txt
+2026-01-29 18:00:30,353 - INFO - >>>>LLM 설정 파일 생성됨: llm\gemini_settings_00040.ini
+2026-01-29 18:00:30,353 - INFO - ============================================================
+2026-01-29 18:00:30 | INFO  | [FlowA] DONE status=OK total=0.48s last=a1
+2026-01-29 18:00:30 | INFO  | [FlowA] PATH: a1[rc=0]

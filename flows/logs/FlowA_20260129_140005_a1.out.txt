@@ -1,0 +1,1 @@
+C:\Users\82108\AppData\Local\Programs\Python\Python313\python.exe: can't open file 'C:\\access\\rpa\\convert_excel2llm2.py \\summary\\매출실적.xlsx --formats txt --data-only --outdir \\log\\mail_ready': [Errno 2] No such file or directory

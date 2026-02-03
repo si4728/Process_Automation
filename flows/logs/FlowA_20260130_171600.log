@@ -1,0 +1,99 @@
+2026-01-30 17:16:00 | INFO  | [FlowA] START flow=C:\access\rpa\flows\flow_A1.yaml
+2026-01-30 17:16:00 | INFO  | [FlowA] workdir=C:\access\rpa timeout=600 log=C:\access\rpa\flows\logs\FlowA_20260130_171600.log
+2026-01-30 17:16:00 | INFO  | [FlowA] >>> RUN a1 (Excel -> LLM 변환)
+2026-01-30 17:16:00 | INFO  | [FlowA] CMD: ['C:\\Users\\82108\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'C:\\access\\rpa\\convert_excel2llm2.py', '.\\summary\\매출실적.xlsx', '--formats', 'txt', '--data-only', '--outdir', '.\\summary']
+2026-01-30 17:16:00 | INFO  | [FlowA] OUT: C:\access\rpa\flows\logs\FlowA_20260130_171600_a1.out.txt
+2026-01-30 17:16:00 | INFO  | [FlowA] <<< END a1 rc=0 elapsed=0.43s
+2026-01-30 17:16:00 | INFO  | [FlowA] [OUTPUT TAIL]
+2026-01-30 17:16:00,336 - INFO - Excel 파일 로드 중: C:\access\rpa\summary\매출실적.xlsx
+2026-01-30 17:16:00,473 - INFO - 시트 처리 중: 1월매출실적
+2026-01-30 17:16:00,484 - INFO - 생성됨: C:\access\rpa\summary\1월매출실적.txt
+2026-01-30 17:16:00,484 - INFO - 
+============================================================
+2026-01-30 17:16:00,484 - INFO - 변환 완료!
+2026-01-30 17:16:00,484 - INFO - 처리된 시트: 1개
+2026-01-30 17:16:00,484 - INFO - 출력 디렉토리: C:\access\rpa\summary
+2026-01-30 17:16:00,484 - INFO - 생성된 파일: 1개
+2026-01-30 17:16:00,485 - INFO - 
+생성된 파일 목록:
+2026-01-30 17:16:00,485 - INFO -  summary\1월매출실적.txt
+2026-01-30 17:16:00,488 - INFO - >>>>LLM 설정 파일 생성됨: llm\gemini_settings_00048.ini
+2026-01-30 17:16:00,488 - INFO - ============================================================
+2026-01-30 17:16:00 | INFO  | [FlowA] >>> RUN a2 (Gemini 실행)
+2026-01-30 17:16:00 | INFO  | [FlowA] CMD: ['C:\\Users\\82108\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'C:\\access\\rpa\\chat_with_gemini.py']
+2026-01-30 17:16:00 | INFO  | [FlowA] OUT: C:\access\rpa\flows\logs\FlowA_20260130_171600_a2.out.txt
+2026-01-30 17:16:20 | INFO  | [FlowA] <<< END a2 rc=0 elapsed=19.98s
+2026-01-30 17:16:20 | INFO  | [FlowA] [OUTPUT TAIL]
+llm config file:
+[gemini-2.5-flash] 모델을 사용하여 작업을 시작합니다...
+
+==================================================
+[Gemini 분석 결과]
+==================================================
+## 1월 매출 실적 요약 보고서
+
+제공된 1월 매출 실적 데이터를 바탕으로 주요 내용을 요약 보고합니다.
+
+### 1. 전체 매출 요약
+
+*   **총 매출액:** 95,970,300원
+*   **총 부가세:** 9,597,030원
+*   **총 이윤:** 11,510,250원
+*   **총 이윤율:** 약 12.0% (총 이윤 / 총 매출액)
+
+### 2. 내수 매출 현황
+
+내수 매출은 전체 매출의 대부분을 차지하며, 다음과 같은 실적을 보였습니다.
+
+*   **총 매출액 (내수):** 95,970,300원
+*   **총 부가세 (내수):** 9,597,030원
+*   **총 이윤 (내수):** 11,510,250원
+
+**주요 매출 상위 업체:**
+제공된 데이터를 기준으로 매출액이 집계된 상위 업체는 다음과 같습니다.
+
+*   **㈜에이지시멘트:** 38,000,000원
+*   **두성켐텍:** 9,344,800원
+*   **플랙스코:** 7,660,000원
+*   **우성케미칼:** 7,320,000원
+*   **㈜루소:** 4,950,000원
+*   **지팜:** 4,741,500원
+*   **피엔씨케미컬:** 4,640,000원
+*   **우성산업 (Ecom 500KG AL BAG):** 4,560,000원
+
+### 3. 수출 매출 현황
+
+*   수출 부문에서는 동서인도네시아, GS칼텍스_체코, 폴리렉스, 송림피앤피 등 여러 업체에서 개별 품목 매출 및 이윤이 발생한 것으로 기록되어 있습니다.
+*   그러나 **수출 총계(매출량, 매출액, 부가세, 이윤)**는 현재 데이터에서 0으로 집계되어 있어, 전체적인 수출 실적은 이 보고서에 포함되지 않았습니다. 개별 항목의 이윤은 존재하나 총합이 반영되지 않은 것으로 보입니다.
+
+### 4. 특이사항 및 관찰
+
+*   **미집계 또는 미거래 업체 다수:** 많은 업체에서 매출량, 매출액, 부가세 항목이 0으로 기록되어 있으며, 이로 인해 해당 업체의 소계 이윤율은 `#DIV/0!` 오류로 표시되었습니다. 이는 1월에 해당 업체와의 실제 거래가 없었거나, 데이터 입력이 누락되었을 가능성을 시사합니다.
+*   **'실제이윤' 컬럼:** 대부분의 항목에서 '실제이윤' 컬럼이 0으로 기록되어 있습니다. 이 컬럼이 어떤 목적으로 사용되는지 명확하지 않으며, 만약 실제 이윤을 추적하는 용도라면 추가적인 데이터 입력 또는 정산이 필요해 보입니다.
+*   **상세한 품목 데이터:** 각 품목별로 단가, 원가, 이윤 데이터가 상세하게 제공되어 있어, 향후 품목별 수익성 분석 및 가격 전략 수립에 유용하게 활용될 수 있습니다.
+*   **비고 항목 활용:** '비고' 컬럼에 품목에 대한 추가 설명(예: "유진통상 매입", "1공장(200장)", "화인케미칼")이 기록되어 있어, 품목의 특성이나 거래 조건을 이해하는 데 도움이 됩니다.
+
+### 5. 제언
+
+정확한 월별 매출 실적 분석을 위해, 다음 사항을 검토해 볼 것을 제언합니다.
+
+*   **수출 총계 집계 누락 확인:** 수출 부문의 총 매출액 및 이윤이 정확히 집계될 수 있도록 데이터의 유효성을 검토하고 보완해야 합니다.
+*   **0 매출 업체 확인:** 매출액이 0으로 기록된 업체들이 실제 거래가 없었는지, 혹은 데이터 입력 오류/누락이 있었는지 확인하여 데이터의 신뢰성을 확보해야 합니다.
+*   **'실제이윤' 컬럼의 활용 방안 명확화:** '실제이윤' 컬럼의 의도된 목적을 정의하고, 그에 따른 데이터 입력 및 관리 프로세스를 수립해야 합니다.
+saved: .\logs\mail_ready\llm_analysis.docx
+2026-01-30 17:16:20 | INFO  | [FlowA] >>> RUN a4 (Mail 전송)
+2026-01-30 17:16:20 | INFO  | [FlowA] CMD: ['C:\\Users\\82108\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'C:\\access\\rpa\\mail_main.py', '--action', 'send', '--subject', 'Monthly Report', '--contents', 'AI가 분석한 보고서입니다.']
+2026-01-30 17:16:20 | INFO  | [FlowA] OUT: C:\access\rpa\flows\logs\FlowA_20260130_171600_a4.out.txt
+2026-01-30 17:16:21 | INFO  | [FlowA] <<< END a4 rc=0 elapsed=0.75s
+2026-01-30 17:16:21 | INFO  | [FlowA] [OUTPUT TAIL]
+IMAP=imap.mailplug.co.kr:993, SMTP=smtp.mailplug.co.kr:465, USER=ktkim@onbranding.co.kr, FROM=ktkim@onbranding.co.kr
+sent with attachments: ['logs\\mail_ready\\llm_analysis.docx']
+Reporting mail sent
+2026-01-30 17:16:21 | INFO  | [FlowA] >>> RUN a6 (a4 성공 처리)
+2026-01-30 17:16:21 | INFO  | [FlowA] CMD: ['C:\\Users\\82108\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', '-c', "print('a4 success')"]
+2026-01-30 17:16:21 | INFO  | [FlowA] OUT: C:\access\rpa\flows\logs\FlowA_20260130_171600_a6.out.txt
+2026-01-30 17:16:21 | INFO  | [FlowA] <<< END a6 rc=0 elapsed=0.03s
+2026-01-30 17:16:21 | INFO  | [FlowA] [OUTPUT TAIL]
+a4 success
+2026-01-30 17:16:21 | INFO  | [FlowA] DONE status=OK total=21.19s last=a6
+2026-01-30 17:16:21 | INFO  | [FlowA] PATH: a1[rc=0] -> a2[rc=0] -> a4[rc=0] -> a6[rc=0]

@@ -1,0 +1,9 @@
+usage: convert_excel2llm2.py [-h] [--outdir OUTDIR] [--formats FORMATS]
+                             [--json-mode {records,matrix}]
+                             [--header-row HEADER_ROW] [--min-row MIN_ROW]
+                             [--max-row MAX_ROW] [--min-col MIN_COL]
+                             [--max-col MAX_COL] [--data-only]
+                             [--keep-formulas] [--fill-merged]
+                             [--include-hidden] [--drop-empty-rows]
+                             excel
+convert_excel2llm2.py: error: the following arguments are required: excel

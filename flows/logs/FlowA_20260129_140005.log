@@ -1,0 +1,10 @@
+2026-01-29 14:00:05 | INFO  | [FlowA] START flow=C:\access\rpa\flows\flow_A1.yaml
+2026-01-29 14:00:05 | INFO  | [FlowA] workdir=C:\access\rpa timeout=600 log=C:\access\rpa\flows\logs\FlowA_20260129_140005.log
+2026-01-29 14:00:05 | INFO  | [FlowA] >>> RUN a1 (Excel -> LLM 변환)
+2026-01-29 14:00:05 | INFO  | [FlowA] CMD: ['C:\\Users\\82108\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'convert_excel2llm2.py .\\summary\\매출실적.xlsx --formats txt --data-only --outdir .\\log\\mail_ready']
+2026-01-29 14:00:05 | INFO  | [FlowA] OUT: C:\access\rpa\flows\logs\FlowA_20260129_140005_a1.out.txt
+2026-01-29 14:00:05 | INFO  | [FlowA] <<< END a1 rc=2 elapsed=0.04s
+2026-01-29 14:00:05 | INFO  | [FlowA] [OUTPUT TAIL]
+C:\Users\82108\AppData\Local\Programs\Python\Python313\python.exe: can't open file 'C:\\access\\rpa\\convert_excel2llm2.py \\summary\\�������.xlsx --formats txt --data-only --outdir \\log\\mail_ready': [Errno 2] No such file or directory
+2026-01-29 14:00:05 | INFO  | [FlowA] DONE status=FAIL total=0.04s last=a1
+2026-01-29 14:00:05 | INFO  | [FlowA] PATH: a1[rc=2]

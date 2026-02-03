@@ -1,0 +1,3 @@
+IMAP=imap.mailplug.co.kr:993, SMTP=smtp.mailplug.co.kr:465, USER=ktkim@onbranding.co.kr, FROM=ktkim@onbranding.co.kr
+sent with attachments: ['logs\\mail_ready\\llm_analysis.docx']
+Reporting mail sent
