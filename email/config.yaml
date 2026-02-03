@@ -1,0 +1,5 @@
+IMAP_SERVER: "imap.mailplug.co.kr"
+IMAP_PORT: 993
+SMTP_SERVER: "smtp.mailplug.co.kr"
+SMTP_PORT: 465
+
