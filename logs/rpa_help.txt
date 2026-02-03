@@ -1,0 +1,36 @@
+
+interval 을 weekly로 선택시 방법
+
+1) 기본 요일 토큰(가장 안전)
+mon, tue, wed, thu, fri, sat, sun (월~일)
+숫자도 가능: 0-6 (APScheduler에서 첫 요일은 월요일 → 0=mon … 6=sun)
+권장: 사람이 보기 쉬운 mon,tue... 형태를 쓰세요.
+
+2) 입력 형식(자주 쓰는 패턴)
+A. 단일 요일
+mon → 매주 월요일
+B. 여러 요일(콤마로 나열)
+mon,wed,fri → 월/수/금
+✅ 중요: 가능하면 공백 없이 mon,wed처럼 쓰세요. (mon, wed는 환경/버전에 따라 오동작할 수 있어요)
+C. 범위(대시)
+mon-fri → 월~금(평일)
+sat-sun → 토~일(주말)
+
+3) UI에서 “시간”은 어디서 고르나?
+weekly는 요일(Weekly DOW) + 시간(Daily Time) 을 같이 씁니다.
+예)
+Trigger Type: weekly
+Weekly DOW: mon,wed,fri
+Daily Time: 09:10
+→ 매주 월/수/금 09:10 실행
+
+4) 추천 예시 모음
+매주 월요일 09:00 → mon
+평일(월~금) 08:30 → mon-fri
+주말(토/일) 10:00 → sat,sun
+화/목 14:20 → tue,thu
+
+5) 자주 하는 실수(피하면 좋아요)
+월,수,금 같은 한글 요일 → ❌ (mon,wed,fri로)
+Mon,Wed 같이 대문자/혼합 + 공백 → 되기도 하지만, 소문자 + 공백 없음을 권장
+1-5 같은 숫자 범위 → APScheduler는 0-6 체계라 헷갈릴 수 있음(권장: mon-fri)
